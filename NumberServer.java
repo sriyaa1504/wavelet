@@ -8,11 +8,13 @@ class Handler implements URLHandler {
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            return String.format("Number: %d", num);
-        } else if (url.getPath().equals("/increment")) {
-            num += 1;
+            return String.format(" Sriya's Number: %d", num);
+        } 
+        else if (url.getPath().equals("/increment")) {
+            num += 1; //increments num
             return String.format("Number incremented!");
-        } else {
+        } 
+        else {
             System.out.println("Path: " + url.getPath());
             if (url.getPath().contains("/add")) {
                 String[] parameters = url.getQuery().split("=");
@@ -21,7 +23,7 @@ class Handler implements URLHandler {
                     return String.format("Number increased by %s! It's now %d", parameters[1], num);
                 }
             }
-            return "404 Not Found!";
+            return "404 Not Found!"; //else returns error
         }
     }
 }
